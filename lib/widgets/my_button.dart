@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class MyButton extends StatelessWidget {
+  const MyButton({
     super.key,
     required this.title,
     required this.onPressed,
@@ -23,6 +23,7 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(30),
       onTap: onPressed,
       child: Container(
         alignment: Alignment.center,

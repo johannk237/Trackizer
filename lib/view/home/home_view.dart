@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
+import '../../common/list.dart';
 import '../../widgets/custom_arc_painter.dart';
 import '../../widgets/segment_button.dart';
 import '../../widgets/status_button.dart';
 import '../../widgets/subscription_home_row.dart';
 import '../../widgets/upcoming_bills_row.dart';
+import '../settings/settings_view.dart';
+import '../subscription_info/subscription_info_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -16,43 +19,9 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   bool isSubscription = true;
-  List subArr = [
-    {
-      "name": "Spotify",
-      "icon": "assets/logo/spotify_logo.png",
-      "price": "5.99"
-    },
-    {
-      "name": "Youtube Premium",
-      "icon": "assets/logo/youtube_logo.png",
-      "price": "18.99"
-    },
-    {
-      "name": "Microsoft OneDrive",
-      "icon": "assets/logo/OneDrive Logo.png",
-      "price": "29.99"
-    },
-    {
-      "name": "Netflix",
-      "icon": "assets/logo/Netflix Logo.png",
-      "price": "15.00"
-    }
-  ];
 
-  List bilArr = [
-    {"name": "Spotify", "date": DateTime(2024, 08, 28), "price": "5.99"},
-    {
-      "name": "Youtube Premium",
-      "date": DateTime(2024, 08, 28),
-      "price": "18.99"
-    },
-    {
-      "name": "Microsoft OneDrive",
-      "date": DateTime(2024, 08, 28),
-      "price": "29.99"
-    },
-    {"name": "Netflix", "date": DateTime(2024, 08, 28), "price": "15.00"}
-  ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -74,13 +43,40 @@ class _HomeViewState extends State<HomeView> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(bottom: media.width * 0.01),
-                    width: media.width * 0.75,
-                    height: media.width * 0.75,
-                    child: CustomPaint(
-                      painter: CustomArcPainter(end: 220),
-                    ),
+                  Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(bottom: media.width * 0.01),
+                        width: media.width * 0.75,
+                        height: media.width * 0.75,
+                        child: CustomPaint(
+                          painter: CustomArcPainter(end: 220),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: media.height * 0.01),
+                        child: Row(
+                          children: [
+                            const Spacer(),
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SettingsView()));
+                                },
+                                icon: Image.asset(
+                                  "assets/icon/Settings.png",
+                                  width: 25,
+                                  height: 25,
+                                  color: TColor.gray30,
+                                ))
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.min,
@@ -217,7 +213,13 @@ class _HomeViewState extends State<HomeView> {
                   itemBuilder: (context, index) {
                     var sObj = subArr[index] as Map? ?? {};
                     return SubscriptionHomeRow(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SubscriptionInfoView(sObj: sObj)));
+                      },
                       sObj: sObj,
                     );
                   }),

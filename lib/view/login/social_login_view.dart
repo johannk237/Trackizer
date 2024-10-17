@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
-import '../../widgets/primary_button.dart';
+import '../../widgets/my_button.dart';
 import 'sign_up_view.dart';
 
 class SocialLoginView extends StatefulWidget {
@@ -36,7 +36,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                   style: TextStyle(color: TColor.white, fontSize: 14),
                 ),
                 const SizedBox(height: 30),
-                PrimaryButton(
+                MyButton(
                   title: "Sign up with Apple",
                   image: "assets/icon/Apple.png",
                   color: TColor.gray,
@@ -44,7 +44,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                   onPressed: () {},
                 ),
                 const SizedBox(height: 30),
-                PrimaryButton(
+                MyButton(
                   title: "Sign up with Google",
                   image: "assets/icon/Google.png",
                   color: TColor.white,
@@ -52,7 +52,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                   onPressed: () {},
                 ),
                 const SizedBox(height: 30),
-                PrimaryButton(
+                MyButton(
                   title: "Sign up with Facebook",
                   image: "assets/icon/Facebook.png",
                   color: Colors.blue,
@@ -65,7 +65,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                   style: TextStyle(color: TColor.white, fontSize: 14),
                 ),
                 const SizedBox(height: 30),
-                PrimaryButton(
+                MyButton(
                   title: "Sign up with E-mail",
                   image: "",
                   color: TColor.primary,
@@ -78,10 +78,6 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                   },
                 ),
                 const SizedBox(height: 30),
-                Text(
-                  "Welcome to our App",
-                  style: TextStyle(color: TColor.white, fontSize: 14),
-                ),
               ],
             ),
           ),

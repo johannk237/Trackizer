@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../add_subscription/add_subscription_view.dart';
 import '../../common/color_extension.dart';
+import '../calender/calender_view.dart';
+import '../cards/cards_view.dart';
 import '../home/home_view.dart';
 import '../spending_budgets/spending_budgets_view.dart';
 
@@ -38,7 +41,10 @@ class _MainTabViewState extends State<MainTabView> {
                       Stack(
                         alignment: Alignment.center,
                         children: [
-                          Image.asset("assets/image/BG.png"),
+                          Image.asset(
+                            "assets/image/BG.png",
+                            width: media.width,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -61,7 +67,8 @@ class _MainTabViewState extends State<MainTabView> {
                                   onPressed: () {
                                     setState(() {
                                       selectTab = 1;
-                                      currentTabView = SpendingBudgetsView();
+                                      currentTabView =
+                                          const SpendingBudgetsView();
                                     });
                                   },
                                   icon: Image.asset(
@@ -79,7 +86,7 @@ class _MainTabViewState extends State<MainTabView> {
                                   onPressed: () {
                                     setState(() {
                                       selectTab = 2;
-                                      currentTabView = Container();
+                                      currentTabView = const CalenderView();
                                     });
                                   },
                                   icon: Image.asset(
@@ -94,7 +101,7 @@ class _MainTabViewState extends State<MainTabView> {
                                   onPressed: () {
                                     setState(() {
                                       selectTab = 3;
-                                      currentTabView = Container();
+                                      currentTabView = const CardsView();
                                     });
                                   },
                                   icon: Image.asset(
@@ -110,7 +117,14 @@ class _MainTabViewState extends State<MainTabView> {
                         ],
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AddSubscriptionView(),
+                            ),
+                          );
+                        },
                         child: Container(
                           width: media.width * 0.125,
                           height: media.width * 0.125,
@@ -121,7 +135,7 @@ class _MainTabViewState extends State<MainTabView> {
                                 BoxShadow(
                                     color: TColor.secondary.withOpacity(0.25),
                                     blurRadius: 10,
-                                    offset: Offset(0, 4))
+                                    offset: const Offset(0, 4))
                               ],
                               borderRadius: BorderRadius.circular(50)),
                           child: Icon(

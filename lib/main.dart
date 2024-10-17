@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'common/color_extension.dart';
 import 'view/login/welcome_view.dart';
-import 'view/main_tab/main_tab_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: WelcomeView(), //const MainTabView(),
+      home: const WelcomeView(), //const MainTabView(),
     );
   }
 }

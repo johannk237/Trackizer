@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
-import '../../widgets/primary_button.dart';
+import '../../widgets/my_button.dart';
 import '../../widgets/round_text_field.dart';
 import 'sign_in_view.dart';
 
@@ -86,7 +86,7 @@ class _SignUpViewState extends State<SignUpView> {
                   "Use 8 or more characters with a mix of letters,\nnumbers & symbols",
                   style: TextStyle(color: TColor.gray50, fontSize: 14)),
               const SizedBox(height: 8),
-              PrimaryButton(
+              MyButton(
                 title: "Get started, it's free!",
                 image: "",
                 color: TColor.primary,
@@ -99,7 +99,7 @@ class _SignUpViewState extends State<SignUpView> {
                 style: TextStyle(color: TColor.white, fontSize: 14),
               ),
               const SizedBox(height: 20),
-              PrimaryButton(
+              MyButton(
                 title: "Sign in",
                 image: "",
                 color: TColor.gray60,

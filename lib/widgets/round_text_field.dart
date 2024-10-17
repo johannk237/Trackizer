@@ -6,12 +6,14 @@ class RoundTextField extends StatelessWidget {
   const RoundTextField({
     super.key,
     required this.title,
+    this.titleAlign = TextAlign.left,
     this.controller,
     this.keyboardType,
     this.obscureText = false,
   });
 
   final String title;
+  final TextAlign titleAlign;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final bool obscureText;
@@ -21,9 +23,16 @@ class RoundTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: TextStyle(color: TColor.gray50, fontSize: 14),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                title,
+                textAlign: titleAlign,
+                style: TextStyle(color: TColor.gray50, fontSize: 12),
+              ),
+            )
+          ],
         ),
         const SizedBox(height: 4),
         Container(

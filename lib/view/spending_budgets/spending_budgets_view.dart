@@ -2,8 +2,10 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
+import '../../common/list.dart';
 import '../../widgets/budget_row.dart';
 import '../../widgets/custom_arc_180_painter.dart';
+import '../settings/settings_view.dart';
 
 class SpendingBudgetsView extends StatefulWidget {
   const SpendingBudgetsView({super.key});
@@ -13,33 +15,6 @@ class SpendingBudgetsView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<SpendingBudgetsView> {
-  List budgetArr = [
-    {
-      "name": "Auto & Transport",
-      "icon": "assets/icon/Auto & Transport.png",
-      "spend_amount": "25.99",
-      "total_budget": "480",
-      "left_amount": "374.01",
-      "color": TColor.secondaryG
-    },
-    {
-      "name": "Entertainment",
-      "icon": "assets/icon/Entertainment.png",
-      "spend_amount": "50.99",
-      "total_budget": "600",
-      "left_amount": "549.01",
-      "color": TColor.secondary50
-    },
-    {
-      "name": "Security",
-      "icon": "assets/icon/Security.png",
-      "spend_amount": "5.99",
-      "total_budget": "600",
-      "left_amount": "594.01",
-      "color": TColor.primary10
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -48,13 +23,32 @@ class _HomeViewState extends State<SpendingBudgetsView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: media.height * 0.07,
+            Padding(
+              padding: EdgeInsets.only(
+                  top: media.height * 0.05, right: media.height * 0.01),
+              child: Row(
+                children: [
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SettingsView()));
+                      },
+                      icon: Image.asset(
+                        "assets/icon/Settings.png",
+                        width: 25,
+                        height: 25,
+                        color: TColor.gray30,
+                      ))
+                ],
+              ),
             ),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
-                Container(
+                SizedBox(
                   width: media.width * 0.5,
                   height: media.width * 0.25,
                   child: CustomPaint(
@@ -90,7 +84,7 @@ class _HomeViewState extends State<SpendingBudgetsView> {
                 )
               ],
             ),
-             SizedBox(
+            SizedBox(
               height: media.height * 0.07,
             ),
             Padding(
@@ -140,9 +134,9 @@ class _HomeViewState extends State<SpendingBudgetsView> {
                 borderRadius: BorderRadius.circular(16),
                 onTap: () {},
                 child: DottedBorder(
-                  dashPattern: [5, 4],
+                  dashPattern: const [5, 4],
                   strokeWidth: 1,
-                  radius: Radius.circular(16),
+                  radius: const Radius.circular(16),
                   borderType: BorderType.RRect,
                   color: TColor.border.withOpacity(0.1),
                   child: Container(

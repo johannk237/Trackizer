@@ -18,48 +18,46 @@ class StatusButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: onPressed,
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            Container(
-              height: 68,
-              decoration: BoxDecoration(
-                border: Border.all(color: TColor.border.withOpacity(0.15)),
-                color: TColor.gray60.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    text,
-                    style: TextStyle(
-                        color: TColor.gray40,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    value,
-                    style: TextStyle(
-                        color: TColor.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+    return InkWell(
+      onTap: onPressed,
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            height: 68,
+            decoration: BoxDecoration(
+              border: Border.all(color: TColor.border.withOpacity(0.15)),
+              color: TColor.gray60.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(16),
             ),
-            Container(
-              height: 1,
-              width: 60,
-              color: statusColor,
-              alignment: Alignment.center,
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  text,
+                  style: TextStyle(
+                      color: TColor.gray40,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  value,
+                  style: TextStyle(
+                      color: TColor.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Container(
+            height: 1,
+            width: 60,
+            color: statusColor,
+            alignment: Alignment.center,
+          ),
+        ],
       ),
     );
   }

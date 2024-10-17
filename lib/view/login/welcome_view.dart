@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../common/color_extension.dart';
-import '../../widgets/primary_button.dart';
-import '../../widgets/secondary_button.dart';
+import '../../widgets/my_button.dart';
 import 'sign_in_view.dart';
 import 'social_login_view.dart';
 
@@ -42,19 +41,19 @@ class _WelcomeViewState extends State<WelcomeView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                   SizedBox(height: media.height * 0.05),
+                  SizedBox(height: media.height * 0.05),
                   Image.asset(
                     "assets/logo/logo.png",
                     width: media.width * 0.5,
                     fit: BoxFit.contain,
                   ),
                   const Spacer(),
-                   Text(
+                  Text(
                     "Welcome to our App",
                     style: TextStyle(color: TColor.white, fontSize: 14),
                   ),
-                   SizedBox(height: media.height * 0.03),
-                  PrimaryButton(
+                  SizedBox(height: media.height * 0.03),
+                  MyButton(
                     title: "Get Started",
                     image: "",
                     color: TColor.primary,
@@ -66,8 +65,8 @@ class _WelcomeViewState extends State<WelcomeView> {
                               builder: (context) => const SocialLoginView()));
                     },
                   ),
-                   SizedBox(height: media.height * 0.03),
-                  SecondaryButton(
+                  SizedBox(height: media.height * 0.03),
+                  MyButton(
                     title: "I have an account",
                     image: "",
                     color: TColor.secondary,

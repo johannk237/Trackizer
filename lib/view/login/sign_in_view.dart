@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
-import '../../widgets/primary_button.dart';
+import '../../widgets/my_button.dart';
 import '../../widgets/round_text_field.dart';
 import '../main_tab/main_tab_view.dart';
 import 'sign_up_view.dart';
@@ -84,7 +84,7 @@ class _SignInViewState extends State<SignInView> {
                 ],
               ),
               const SizedBox(height: 30),
-              PrimaryButton(
+              MyButton(
                 title: "Sign in",
                 image: "",
                 color: TColor.primary,
@@ -102,7 +102,7 @@ class _SignInViewState extends State<SignInView> {
                 style: TextStyle(color: TColor.white, fontSize: 14),
               ),
               const SizedBox(height: 20),
-              PrimaryButton(
+              MyButton(
                 title: "Sign up",
                 image: "",
                 color: TColor.gray60,
